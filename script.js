@@ -6,9 +6,9 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let humanChoice = prompt("Please enter rock, paper, or scissors:").toLowerCase();
-    while (!["rock", "paper", "scissors"].includes(humanChoice)) {
-        humanChoice = prompt("Invalid choice. Please enter rock, paper, or scissors:").toLowerCase();
+    let humanChoice = prompt("Please enter rock, paper, or scissors:");
+    while (!["rock", "paper", "scissors"].includes(humanChoice.toLowerCase())) {
+        humanChoice = prompt("Invalid choice. Please enter rock, paper, or scissors:");
     }
     return humanChoice;
 }
@@ -41,16 +41,16 @@ function playGame() {
     humanScore = 0;
     computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
+    while (humanScore < 5 && computerScore < 5) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     }
 
-    if (humanScore > computerScore) {
+    if (humanScore == 5) {
         alert("You win the game!");
         console.log("You win the game!");
-    } else if (computerScore > humanScore) {
+    } else if (computerScore == 5) {
         alert("You lose the game!");
         console.log("You lose the game!");
     } else {
